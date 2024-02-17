@@ -21,8 +21,8 @@ public class Driver {
     public static WebDriver getDriver() {
 
         if (driver == null) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
         }
         return driver;
     }
