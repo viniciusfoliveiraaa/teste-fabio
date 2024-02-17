@@ -11,12 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Configuracao Java
-      uses: actions/setup-java@v3
-      
+    - name: Configuracao Java 
+    - uses: actions/setup-java@v2
       with:
-        java-version: '17'
-        distribution: 'temurin'
+        java-version: '15'
+        distribution: 'adopt'
         cache: maven
     - name: Automacao web
       run: mvn test
