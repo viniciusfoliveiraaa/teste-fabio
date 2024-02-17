@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="automacao_blog_agi" />
+        <module name="blog-agi" />
       </profile>
     </annotationProcessing>
   </component>

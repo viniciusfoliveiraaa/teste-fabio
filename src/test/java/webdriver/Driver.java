@@ -23,6 +23,9 @@ public class Driver {
         if (driver == null) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.setJavascriptEnabled(true);
+
         }
         return driver;
     }
