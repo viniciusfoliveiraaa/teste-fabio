@@ -6,6 +6,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        firefox: [ '84.0', 'latest-beta', 'latest-devedition', 'latest-nightly', 'latest-esr', 'latest' ]
+    name: Firefox ${{ matrix.firefox }} sample
 
     steps:
     - name: Baixando o projeto
@@ -17,6 +21,12 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Instalar firefox 
-      uses: browser-actions/setup-firefox@latest     
+      id: setup-firefox
+      uses: browser-actions/setup-firefox@v1
+      with:
+        firefox-version: ${{ matrix.firefox }}
+    - run: |
+          echo Installed firefox versions: ${{ steps.setup-firefox.outputs.firefox-version }}
+          ${{ steps.setup-firefox.outputs.firefox-path }} --version
     - name: Automacao web
       run: mvn test
