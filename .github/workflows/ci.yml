@@ -6,11 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        firefox: [ '84.0', 'latest-beta', 'latest-devedition', 'latest-nightly', 'latest-esr', 'latest' ]
-    name: Firefox ${{ matrix.firefox }} sample
-
     steps:
     - name: Baixando o projeto
       uses: actions/checkout@v2
